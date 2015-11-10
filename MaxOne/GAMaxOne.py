@@ -5,11 +5,12 @@ __author__ = 'Alexandre Catalano'
 
 prob_crossover = 0.60
 prob_mutation = 0.05
-iteration_limit = 1000
-population_size = 1000
-max_one = 196
-l = [10, 50, 100, 1000]
-xaxis = []
+iteration_limit = 100
+population_size = 100
+max_one = 192
+l = [10, 20, 100, 1000]
+
+x_axis = []
 
 for test in l:
     iteration_limit = test
@@ -53,30 +54,32 @@ for test in l:
         return False
 
 
-    def selection(fits_pop):
+    def select(fits_pop):
         fitness_population = 0
         parent_pairs = []
         for i in fits_pop:
             fitness_population += i[0]
         for individual in range(0, population_size, 1):
-            nb = random.randrange(0, fitness_population)
-            tmp = 0
-            for i in fits_pop:
-                tmp += i[0]
-                if tmp >= nb:
-                    parent_pairs.append(i[1])
-                    break
+            random_numbers = random.randrange(0, population_size)
+            random_numbers_bis = random.randrange(0, population_size)
+            if fits_pop[random_numbers][0] > fits_pop[random_numbers_bis][0]:
+                parent_pairs.append(fits_pop[random_numbers][1])
+            else:
+                parent_pairs.append(fits_pop[random_numbers_bis][1])
         return parent_pairs
 
 
     def crossover(father, mother):
         size = len(father)
-        cross_point = random.randrange(0, size)
+        cross_point0 = random.randrange(0, size)
+        cross_point1 = random.randrange(cross_point0, size)
         kid0 = father[:]
         kid1 = mother[:]
-        for i in range(cross_point, size, 1):
-            kid0[i] = mother[i]
-            kid1[i] = father[i]
+        # for i in range(cross_point, size, 1):
+        #     kid0[i] = mother[i]
+        #     kid1[i] = father[i]
+        kid0[cross_point0: cross_point1] = mother[cross_point0: cross_point1]
+        kid1[cross_point0: cross_point1] = father[cross_point0: cross_point1]
         return [kid0, kid1]
 
 
@@ -90,7 +93,8 @@ for test in l:
 
 
     def breed_population(fits_pop):
-        parents = selection(fits_pop)
+        # parents = selection(fits_pop)
+        parents = select(fits_pop)
         next_population = []
         father = 0
         while father < population_size:
@@ -120,8 +124,8 @@ for test in l:
                 best_fitness_value = fitness_value
             population_fitness_value += fitness_value
         best_fit_list.append(best_fitness_value)
-        print "population fitness = %d, best_fitness_value %d" % (population_fitness_value, best_fitness_value)
-        print 'iteration = ' + str(turn)
+        # print "population fitness = %d, best_fitness_value %d" % (population_fitness_value, best_fitness_value)
+        # print 'iteration = ' + str(turn)
 
 
     def run():
@@ -135,12 +139,14 @@ for test in l:
                 break
             population = breed_population(fits_pop)
             print_pop(population, i)
+
+
     run()
-    xaxis.append(best_fit_list)
+    x_axis.append(best_fit_list)
 
 for x in range(0, len(l), 1):
-    plt.plot(xaxis[x], label=str(l[x]))
+    plt.plot(x_axis[x], label=str(l[x]))
     plt.legend(bbox_to_anchor=(0., 1.02, 1., .102), loc=3,
-           ncol=2, mode="expand", borderaxespad=0.)
+               ncol=2, mode="expand", borderaxespad=0.)
 
 plt.show()

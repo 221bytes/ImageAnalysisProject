@@ -6,6 +6,8 @@ __author__ = 'necocityhunters'
 
 crossoverProb = 60
 
+## k = 1 - (d/dm) with d = difference between our image and lena and dm is the maximum error = 255*512*512
+
 def set_bit(v, index, x):
     mask = 1 << index
     v &= ~mask
@@ -26,6 +28,7 @@ genes = [ctypes.c_ubyte(random.randint(0, 255)),
 noiseAmp = genes[0].value * (30.0/255.0)
 noiseFreqRow = genes[1].value * (0.01/255.0)
 noiseFreqCol = genes[2].value * (0.01/255.0)
+dm = 255*512*512
 
 print "noiseAmp : %f noiseFreqRow : %f  noiseFreqCol : %f" % (noiseAmp, noiseFreqRow, noiseFreqCol)
 
@@ -44,14 +47,13 @@ for row in range(0, height, 1):
         sinus = np.sin(np.radians(n2))
 
         pxValue = noiseAmp * sinus
-
         img[row, col] += pxValue
 
 cv2.imshow('Corrupted Lena', img)
 cv2.imwrite('lena_corrupted_my.bmp', img)
 
-imgOrignal = cv2.imread('lena_gray_my.bmp', cv2.IMREAD_GRAYSCALE)
-imgCorrupted = cv2.imread('lena_corrupted_my.bmp', cv2.IMREAD_GRAYSCALE)
+imgOrignal = cv2.imread('lena.png', cv2.IMREAD_GRAYSCALE)
+imgCorrupted = cv2.imread('lena_noisy.png', cv2.IMREAD_GRAYSCALE)
 
 height, width = img.shape
 
@@ -67,7 +69,7 @@ for row in range(0, height, 1):
             px *= -1
         wrongPixel += px
 
-print "error rate = %f percent" % (float(wrongPixel) / float(totalPixel))
+print "error rate = %f percent" % (1 - float(wrongPixel) / float(dm))
 
 cv2.waitKey(0)
 

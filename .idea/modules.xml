@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../EIP/.idea/EIP.iml" filepath="$PROJECT_DIR$/../EIP/.idea/EIP.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/ImageAnalysis.iml" filepath="$PROJECT_DIR$/.idea/ImageAnalysis.iml" />
     </modules>
   </component>
