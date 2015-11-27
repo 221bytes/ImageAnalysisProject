@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8430a924-68b6-459e-942e-667e6561df2c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MaxOne/GAMaxOneMatrix.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MaxOne/GAParameter.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/ImageAnalysis.iml" afterPath="$PROJECT_DIR$/.idea/ImageAnalysis.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ImageRestoration/ImageCopyMaxOne.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MaxOne/GAMaxOneMatrix_rlg.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ImageRestoration/ImageRestorationGA.py" afterPath="$PROJECT_DIR$/ImageRestoration/ImageRestorationGA.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MaxOne/GAMaxOne.py" afterPath="$PROJECT_DIR$/MaxOne/GAMaxOne.py" />
     </list>
     <ignored path="ImageAnalysis.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -53,7 +49,7 @@
           <file leaf-file-name="GAParameter.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/MaxOne/GAParameter.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.95098037">
+                <state vertical-scroll-proportion="0.95409834">
                   <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
                   <folding>
                     <element signature="e#0#39#0" expanded="true" />
@@ -69,7 +65,7 @@
           <file leaf-file-name="GAMaxOneMatrix.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/MaxOne/GAMaxOneMatrix.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-2.0034246">
+                <state vertical-scroll-proportion="-2.0103092">
                   <caret line="10" column="32" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
                   <folding>
                     <element signature="e#0#13#0" expanded="true" />
@@ -566,6 +562,13 @@
       <option name="number" value="Default" />
       <updated>1444633229739</updated>
     </task>
+    <task id="LOCAL-00001" summary="Image restoration : in progress; maxone with GA for parameters : in progress">
+      <created>1448641020094</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1448641020094</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView">
@@ -581,12 +584,13 @@
     <frame x="0" y="0" width="1920" height="1061" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43543223" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43543223" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32842106" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46267086" sideWeight="0.5096051" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32896176" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3280757" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46267086" sideWeight="0.4903949" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3564669" sideWeight="0.49359658" order="12" side_tool="false" content_ui="tabs" />
@@ -635,6 +639,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Image restoration : in progress; maxone with GA for parameters : in progress" />
+    <option name="LAST_COMMIT_MESSAGE" value="Image restoration : in progress; maxone with GA for parameters : in progress" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1029,7 +1037,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MaxOne/GAMaxOneMatrix.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.0034246">
+        <state vertical-scroll-proportion="-2.0103092">
           <caret line="10" column="32" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
@@ -1047,7 +1055,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MaxOne/GAParameter.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.95098037">
+        <state vertical-scroll-proportion="0.95409834">
           <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
