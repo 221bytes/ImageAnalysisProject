@@ -1,19 +1,24 @@
 import random
 import matplotlib.pyplot as plt
+import time
+import numpy as np
 
 __author__ = 'Alexandre Catalano'
 
 prob_crossover = 0.60
 prob_mutation = 0.05
-iteration_limit = 100
-population_size = 100
-max_one = 192
-l = [10, 20, 100, 1000]
+iteration_limit = 10000000
+population_size = 1000
+max_one = 1920
+l = [10000000]
 
 x_axis = []
 
 for test in l:
     iteration_limit = test
+    # population_size = test
+    # prob_crossover = test / 100
+    # prob_mutation = test / 100
     best_fit_list = []
 
 
@@ -75,7 +80,7 @@ for test in l:
         cross_point1 = random.randrange(cross_point0, size)
         kid0 = father[:]
         kid1 = mother[:]
-        # for i in range(cross_point, size, 1):
+        # for i in range(cross_point0, size, 1):
         #     kid0[i] = mother[i]
         #     kid1[i] = father[i]
         kid0[cross_point0: cross_point1] = mother[cross_point0: cross_point1]
@@ -124,29 +129,44 @@ for test in l:
                 best_fitness_value = fitness_value
             population_fitness_value += fitness_value
         best_fit_list.append(best_fitness_value)
-        # print "population fitness = %d, best_fitness_value %d" % (population_fitness_value, best_fitness_value)
-        # print 'iteration = ' + str(turn)
+        print "population fitness = %d, best_fitness_value %d" % (population_fitness_value, best_fitness_value)
+        print 'iteration = ' + str(turn)
 
 
     def run():
         population = initial_population(population_size)
-        print_pop(population, 0)
+        # print_pop(population, 0)
+        arr = np.empty(0)
         for i in range(0, iteration_limit, 1):
+            start = time.clock()
             fits_pop = []
             for individual in population:
                 fits_pop.append([fitness(individual), individual])
             if check_stop(fits_pop, i):
                 break
             population = breed_population(fits_pop)
-            print_pop(population, i)
+            end = time.clock()
+            arr = np.append(arr, (end-start))
+            # print_pop(population, i)
+        print np.sum(arr) / len (arr)
 
+    def star():
+        arr = np.empty(0)
+        for i in range(0, 100, 1):
+            start = time.clock()
+            run()
+            end = time.clock()
+            algo_time = end - start
+            arr = np.append(arr, algo_time)
+            print algo_time
+        print np.sum(arr) / len(arr)
 
-    run()
-    x_axis.append(best_fit_list)
-
-for x in range(0, len(l), 1):
-    plt.plot(x_axis[x], label=str(l[x]))
-    plt.legend(bbox_to_anchor=(0., 1.02, 1., .102), loc=3,
-               ncol=2, mode="expand", borderaxespad=0.)
-
-plt.show()
+    star()
+#     x_axis.append(best_fit_list)
+#
+# for x in range(0, len(l), 1):
+#     plt.plot(x_axis[x], label=str(l[x]))
+#     plt.legend(bbox_to_anchor=(0., 1.02, 1., .102), loc=3,
+#                ncol=2, mode="expand", borderaxespad=0.)
+#
+# plt.show()
