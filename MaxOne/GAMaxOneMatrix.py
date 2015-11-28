@@ -7,8 +7,8 @@ __author__ = 'Alexandre Catalano'
 
 class GAMaxOneMatrix(object):
     def __init__(self):
-        self.prob_crossover = 0.60
-        self.prob_mutation = 0.1
+        self.prob_crossover = 0.6
+        self.prob_mutation = 0.05
         self.iteration_limit = 100
         self.population_size = 10
         self.max_one = 32
@@ -96,20 +96,20 @@ class GAMaxOneMatrix(object):
             arr = np.append(arr, (end - start))
         # print np.sum(arr) / len(arr)
         return iteration
-#
-# def start():
-#     ga = GAMaxOneMatrix()
-#     arr = np.empty(0)
-#     for i in range(0, 100, 1):
-#         start = time.clock()
-#         ga.run()
-#         end = time.clock()
-#         algo_time = end - start
-#         arr = np.append(arr, algo_time)
-#         print algo_time
-#     print np.sum(arr) / len(arr)
-#
-# start()
+
+def start():
+    ga = GAMaxOneMatrix()
+    arr = np.empty(0)
+    for i in range(0, 100, 1):
+        start = time.clock()
+        ga.run()
+        end = time.clock()
+        algo_time = end - start
+        arr = np.append(arr, algo_time)
+        # print algo_time
+    print np.sum(arr) / len(arr)
+
+start()
 
 
     # from mpl_toolkits.mplot3d import Axes3D

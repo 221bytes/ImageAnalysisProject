@@ -1,7 +1,7 @@
 import GAMaxOneMatrix as MaxOneSolution
 import numpy as np
 
-population_size = 10
+population_size = 100
 nb_parameter = 3
 gene_size = 8
 iteration_limit = 100
@@ -48,7 +48,9 @@ def fitness(population):
 def run():
     population = initial_population()
     for i in range(0, iteration_limit, 1):
+        print 'iteration %d' % i
         fits_pop = [fitness(population), population]
+        tool.population_size = population_size
         population = tool.breed_population(fits_pop)
     return
 
