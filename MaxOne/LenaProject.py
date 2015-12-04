@@ -45,10 +45,12 @@ def corrupt_image(im, noise_params):
     return signal, noise, signal_noisy
 
 
-def gene_to_noise_params(individual):
+def gene_to_noise_params(individual, display=False):
     first_gene = individual[:gene_size]
-    second_gene = individual[gene_size:gene_size*2]
-    third_gene = individual[gene_size:]
+    second_gene = individual[gene_size:gene_size * 2]
+    third_gene = individual[gene_size * 2:]
+    if display:
+        print first_gene, second_gene, third_gene
     first_gene = np.packbits(first_gene, axis=-1)
     second_gene = np.packbits(second_gene, axis=-1)
     third_gene = np.packbits(third_gene, axis=-1)
@@ -58,10 +60,10 @@ def gene_to_noise_params(individual):
     return noise_amp[0], noise_freq_row[0], noise_freq_col[0]
 
 
-def lena_fitness(gene):
+def lena_fitness(population):
     fitness_population = np.empty(population_size)
     for individual in range(population_size):
-        noise_params = gene_to_noise_params(gene[individual])
+        noise_params = gene_to_noise_params(population[individual])
         lena, noise, lena_noisy = corrupt_image(global_lena, noise_params)
         noisy_diff = global_lena_noisy - lena_noisy
         noisy_diff = np.sum(np.abs(noisy_diff)) / global_lena_N  # normalized
@@ -76,7 +78,7 @@ def run():
         print 'iteration %d' % i
         fits_pop = [lena_fitness(population), population]
         index = np.argmax(fits_pop[0])
-        print gene_to_noise_params(fits_pop[1][index]), fits_pop[0][index]
+        print gene_to_noise_params(fits_pop[1][index], True), fits_pop[0][index]
         ga.population_size = population_size
         population = ga.breed_population(fits_pop)
     return
