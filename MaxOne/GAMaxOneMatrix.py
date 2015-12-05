@@ -11,7 +11,7 @@ class GAMaxOneMatrix(object):
         self.prob_mutation = 0.05
         self.iteration_limit = 100
         self.population_size = 10
-        self.max_one = 32
+        self.max_one = 8
 
     def initial_population(self):
         return np.random.randint(2, size=(self.population_size, self.max_one))

@@ -85,7 +85,7 @@ def run():
 
 
 global_lena = imread("../Pictures/lena.png")
-global_lena_noisy = imread("../Pictures/lena_noisy.png")
+global_lena_noisy = imread("../Pictures/lena.png_noisy_NA_XXX_NFRow_XXX_NFCol_XXX.png")
 global_lena_N = np.prod(global_lena.shape[:2])
 
 ga = MaxOneSolution.GAMaxOneMatrix()
