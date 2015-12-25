@@ -1,9 +1,9 @@
-import GAMaxOneMatrix as MaxOneSolution
-import numpy as np
 import cv2
+import numpy as np
+import GAMaxOneMatrix as MaxOneSolution
 
-prob_crossover = 0.6
-prob_mutation = 0.05
+prob_crossover = 0.9
+prob_mutation = 0.1
 population_size = 100
 gene_size = 8
 nb_parameter = 3
@@ -27,8 +27,8 @@ def imread(fn, dtype=DTYPE):  # img as array
 def make_noise(params):
     NoiseAmp, NoiseFreqRow, NoiseFreqCol = params
     h, w = global_lena.shape
-    y = np.arange(h)
-    x = np.arange(w)
+    y = np.arange(h) + 1
+    x = np.arange(w) + 1
     col, row = np.meshgrid(x, y, sparse=True)
     noise = NoiseAmp * np.sin(2 * np.pi * NoiseFreqRow * row + 2 * np.pi * NoiseFreqCol * col)
     return noise

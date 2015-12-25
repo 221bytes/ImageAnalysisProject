@@ -1,9 +1,10 @@
-import GAMaxOneMatrix as MaxOneSolution
-import matplotlib.cm as cmx
-from mpl_toolkits.mplot3d import Axes3D
-import matplotlib.pyplot as plt
-import matplotlib.colors as colors
+# import matplotlib.cm as cmx
+# import matplotlib.colors as colors
+# import matplotlib.pyplot as plt
+# from mpl_toolkits.mplot3d import Axes3D
 import numpy as np
+import GAMaxOneMatrix as MaxOneSolution
+import TravelingSalesmanProblem as TSPSoltuion
 
 
 
@@ -55,7 +56,7 @@ def run():
 
 nb_parameter = 3
 gene_size = 8
-ga = MaxOneSolution.GAMaxOneMatrix()
+ga = TSPSoltuion.TSPMatrix()
 tool = MaxOneSolution.GAMaxOneMatrix()
 tool.max_one = nb_parameter * gene_size
 population_size = 100
@@ -82,6 +83,7 @@ for i in range(1, len(best)):
     population_size_value[i] = individual[0][2]
     fitness_value[i] = individual[1]
 
+print fitness_value
 
 # x = np.random.standard_normal(100)
 # y = np.random.standard_normal(100)
@@ -92,17 +94,17 @@ for i in range(1, len(best)):
 # plt.show()
 
 
-
-def scatter3d(x, y, z, cs, colorsMap='jet'):
-    cm = plt.get_cmap(colorsMap)
-    cNorm = colors.Normalize(vmin=min(cs), vmax=max(cs))
-    scalarMap = cmx.ScalarMappable(norm=cNorm, cmap=cm)
-    fig = plt.figure()
-    ax = Axes3D(fig)
-    ax.scatter(x, y, z, c=scalarMap.to_rgba(cs))
-    scalarMap.set_array(cs)
-    fig.colorbar(scalarMap, shrink=.5, pad=.2, aspect=10, label='Test')
-    plt.show()
-
-
-scatter3d(cross_value, mutation_value, fitness_value, population_size_value)
+#
+# def scatter3d(x, y, z, cs, colorsMap='jet'):
+#     cm = plt.get_cmap(colorsMap)
+#     cNorm = colors.Normalize(vmin=min(cs), vmax=max(cs))
+#     scalarMap = cmx.ScalarMappable(norm=cNorm, cmap=cm)
+#     fig = plt.figure()
+#     ax = Axes3D(fig)
+#     ax.scatter(x, y, z, c=scalarMap.to_rgba(cs))
+#     scalarMap.set_array(cs)
+#     fig.colorbar(scalarMap, shrink=.5, pad=.2, aspect=10, label='Test')
+#     plt.show()
+#
+#
+# scatter3d(cross_value, mutation_value, fitness_value, population_size_value)

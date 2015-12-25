@@ -48,17 +48,16 @@ while isTrue:
     if key & 0xFF == ord('l'):
         s_val += 1
     elif key & 0xFF == ord('j'):
+        if s_val == 0:
+            s_val = 255
         s_val -= 1
-    a += 1
-    if a == 210:
-        isTrue = False
+
 
 cap.release()
 cv2.destroyAllWindows()
 
-
-
 plt.plot(x_axis, label=str('light'))
+plt.ylim(0, 255)
 plt.legend(bbox_to_anchor=(0., 1.02, 1., .102), loc=3,
            ncol=2, mode="expand", borderaxespad=0.)
 

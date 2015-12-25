@@ -9,9 +9,9 @@ class GAMaxOneMatrix(object):
     def __init__(self):
         self.prob_crossover = 0.6
         self.prob_mutation = 0.05
-        self.iteration_limit = 100
-        self.population_size = 10
-        self.max_one = 8
+        self.iteration_limit = 50
+        self.population_size = 100
+        self.max_one = 32
 
     def initial_population(self):
         return np.random.randint(2, size=(self.population_size, self.max_one))
